@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7-Slide Presentation</title>
+    <style>
+      .slide {
+        display: none;
+        text-align: center;
+      }
+      .slide img {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="presentation">
+      <div class="slide">
+        <h1>Slide 1</h1>
+        <img src="./img/Untitled-1.png" alt="Placeholder 1" />
+      </div>
+      <div class="slide">
+        <h1>Slide 2</h1>
+        <img src="./img/Untitled-2.png" alt="Placeholder 2" />
+      </div>
+      <div class="slide">
+        <h1>Slide 3</h1>
+        <img src="./img/Untitled-3.png" alt="Placeholder 3" />
+      </div>
+      <div class="slide">
+        <h1>Slide 4</h1>
+        <img src="./img/Untitled-4.png" alt="Placeholder 4" />
+      </div>
+      <div class="slide">
+        <h1>Slide 5</h1>
+        <img src="./img/Untitled-5.png" alt="Placeholder 5" />
+      </div>
+      <div class="slide">
+        <h1>Slide 6</h1>
+        <img src="./img/Untitled-6.png" alt="Placeholder 6" />
+      </div>
+      <div class="slide">
+        <h1>Slide 7</h1>
+        <img src="./img/Untitled-7.png" alt="Placeholder 7" />
+      </div>
+      <div class="slide">
+        <h1>Slide 8</h1>
+        <img src="./img/Untitled-8.png" alt="Placeholder 7" />
+      </div>
+    </div>
+    <button id="prevBtn">Previous</button>
+    <button id="nextBtn">Next</button>
+
+    <script>
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".slide");
+
+      function showSlide(index) {
+        slides.forEach((slide) => (slide.style.display = "none"));
+        slides[index].style.display = "block";
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      }
+
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+      }
+
+      document.getElementById("nextBtn").addEventListener("click", nextSlide);
+      document.getElementById("prevBtn").addEventListener("click", prevSlide);
+
+      showSlide(currentSlide);
+    </script>
+  </body>
+</html>
